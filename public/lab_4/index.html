@@ -2,21 +2,36 @@
 <html lang="en">
   <head>
     <title>Jennifer Bonilla - Lab 4</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <h1>Jennifer Bonilla's Lab 4</h1>
   </head> 
   <form action="/api" method="post">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="textarea">Text Area:</label>
-    <textarea id="textarea" name="textarea" rows="5" cols="33">
-
-    </textarea>
+   
     
-    <button type="submit">Submit</button>
+    <ul class="flex-outer">
+      <li><label for="fname">First Name</label><input type="text" id="fname" name="fname"><br></li>
+      <li><label for="lname">Last Name</label><input type="text" id="lname" name="lname"><br></li>
+      <li><label for="email">Email</label><input type="email" id="email" name="email"><br></li> 
+      <li><label for="phone">Phone</label><input type="tel" id="phone" name="phone"></li>
+      <li><label for="textarea">Text Area:</label><textarea id="textarea" name="message" rows="5" cols="33">This is a default message text.</textarea></li>
+      <li>
+        
+        <ul class="flex-inner">
+        <li><p>Age</p></li>
+        <li><p><input type="checkbox" id="young_age" name="young age"> <label for="young_age"> 18-35</label></p></li>
+        <li><p><input type="checkbox" id="middle_age" name="middle age"> <label for="middle_age"> 35-50</label></p></li>
+        <li><p><input type="checkbox" id="old_age" name="old age"> <label for="old_age"> 50-65</label></p></li>
+        
+      </ul>
 
-    <p>Hello world</p>
+        <li><button id="submit button" name="submit button" type="submit">Submit Form</button></li>
+      </li>
+  
+
+    </ul>
+
+    
+    
   
   </form>
   <body>

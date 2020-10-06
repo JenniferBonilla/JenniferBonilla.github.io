@@ -49,6 +49,9 @@ body {
     background-color: coral;
 }
 
+button#submit {
+    margin-right: 10px;
+}
 .flex-inner li{
     width: 80px;
 }

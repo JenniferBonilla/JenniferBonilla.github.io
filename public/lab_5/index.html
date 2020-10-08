@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lab 5 for Jennifer Bonilla</title>
+    <title>Lab 4 for Jennifer Bonilla</title>
     <link rel="stylesheet" href="styles.css">
-    <h1>Lab 5 for Jennifer Bonilla</h1>
+    <h1>Lab 4 for Jennifer Bonilla</h1>
   </head> 
   <body>
   <form action="/api" method="post">
@@ -14,20 +14,20 @@
       <li><label for="email">Email</label><input type="email" id="email" name="email"><br></li> 
       <li><label for="phone">Phone</label><input type="tel" id="phone" name="phone"></li>
       <li><label for="textarea">Text Area:</label><textarea id="textarea" name="message" rows="5" cols="33">This is a default message text.</textarea></li>
-      <li><p>Age</p></li>
+      
       <li>
-        
+        <p>Age</p>
         <ul class="flex-inner">
         
-        <li><p><input type="checkbox" id="young_age" name="young age"> <label for="young_age"> 18-35</label></p></li>
-        <li><p><input type="checkbox" id="middle_age" name="middle age"> <label for="middle_age"> 35-50</label></p></li>
-        <li><p><input type="checkbox" id="old_age" name="old age"> <label for="old_age"> 50-65</label></p></li>
+        <li><label for="young_age"> 18-35</label><input type="checkbox" id="young_age" name="young age"> </li>
+        <li><label for="middle_age"> 35-50</label><input type="checkbox" id="middle_age" name="middle age"></li>
+        <li><label for="old_age"> 50-65</label><input type="checkbox" id="old_age" name="old age"> </li>
         
       </ul>
 
       <li>
         <button id="submit" name="submit button" type="submit">Submit Form</button>
-        <button id="activate" name="activate button" type="button" onclick="javascript">Activate</button>
+        <button id="activate" name="activate button" type="button" onclick=testFunction()>Activate</button>
       </li>
   
 
@@ -37,6 +37,28 @@
     
   
   </form>
+ 
+ <script>
+
+  function testFunction() {
+    fetch('/api')
+    .then((response) => response.text())
+    .then((response) => {
+         console.log(response);
+         document.querySelector("h1").innerHTML = "Lab 5 for Jennifer Bonilla"
+         document.querySelector("title").innerHTML = "Lab 5 for Jennifer Bonilla"
+         document.body.style.backgroundColor = "pink"; 
+         document.querySelector(".flex-outer").style.margin = "0 auto";
+         document.querySelectorAll('p').innerHTML = "Fruits";
+         var fruits = ["apple", "orange", "cherry"];
+         
+         for (i = 0; i < fruits.length; i++) {
+        }
+         
+    })
+ }
+</script>
+
 </body>
 
 </html>

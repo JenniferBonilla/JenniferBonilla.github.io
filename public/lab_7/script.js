@@ -7,8 +7,9 @@ function range(rl, int) {
 }
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
+  console.log(restaurantList)
   const list = range(restaurantList, restaurantList.length);
- 
+  
   return list;
 }
 

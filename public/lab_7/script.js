@@ -1,5 +1,14 @@
+function range(rl, int) {
+  const arr = [];
+  for (let i = 0; i < int; i += 1) {
+    arr.push(rl[i]);
+  }
+  return arr;
+}
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
+  const list = range(restaurantList, restaurantList.length);
+ 
   return list;
 }
 

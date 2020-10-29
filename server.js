@@ -3,7 +3,6 @@
 /* eslint-disable no-unused-vars */
 import express from 'express';
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 
 dotenv.config();
 
@@ -32,6 +31,7 @@ app.route('/api')
     console.log('fetch request data', json);
     res.json(json);
   });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);

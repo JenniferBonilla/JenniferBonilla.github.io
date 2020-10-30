@@ -13,7 +13,12 @@ body {
 
 }
 
-
+.wrapper > .container {
+  margin-top: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+}
 
 
 .header {

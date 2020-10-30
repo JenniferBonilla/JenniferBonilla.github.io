@@ -1,28 +1,21 @@
-function range(rl, int) {
+function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
-    arr.push(rl[i]);
+    arr.push([i]);
   }
   return arr;
 }
-async function loadData() {
-  const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
-  const json = await data.json();
-
-  const arrayOfTenItems = range(10);
-  const randomRestaurantsArray = arrayOfTenItems.map((item) => {
-    const which = getRandomIntInclusive(0, json.length);
-    const restaurant = json[which]; // we are not worrying about uniqueness here
+function convertRestaurantsToCategories(restaurantList) {
+  // process your restaurants here!
+  
+  arr = range(restaurantList.length)
+  
+  const randomRestaurantsArray = arr.map((item) => {
+    const which = getRandomIntInclusive(0, restaurantList.length);
+    const restaurant = restaurantList[which]; // we are not worrying about uniqueness here
     return restaurant;
   });
 
-  console.table(randomRestaurantsArray); // This shows the shape of our data as it arrives
-
-  const div = document.createElement('div');
-  div.innerHTML = `<h2>What we have</h2> <br />${JSON.stringify(randomRestaurantsArray[0])}<br /><br />`;
-  $('body').append(div);
-
-  /// And now, how to get what we want
   const newDataShape = randomRestaurantsArray.reduce((collection, item, i) => {
     // for each item, check if we have a category for that item already
     const findCat = collection.find((findItem) => findItem.label === item.category);
@@ -38,25 +31,8 @@ async function loadData() {
     }
     return collection;
   }, []);
-
-  console.table(newDataShape);
-
-  const div2 = document.createElement('div');
-  const obj = {
-    label: randomRestaurantsArray[0].category,
-    y: randomRestaurantsArray.length
-  };
-  div2.innerHTML = `<h2>What we want</h2> <br /> <h4>A category, how many things are in the category</h4><pre><code class="language-javascript">${JSON.stringify(obj)}</pre></code>`;
-
-  $('body').append(div2);
-}
-
-
-function convertRestaurantsToCategories(restaurantList) {
-  // process your restaurants here!
- 
   
-  return list;
+  return newDataShape;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
@@ -92,6 +68,8 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
 }
 
 function runThisWithResultsFromServer(jsonFromServer) {
+  document.write(jsonFromServer);
+
   console.log('jsonFromServer', jsonFromServer);
   sessionStorage.setItem('restaurantList', JSON.stringify(jsonFromServer)); // don't mess with this, we need it to provide unit testing support
   // Process your restaurants list
@@ -120,3 +98,4 @@ document.body.addEventListener('submit', async (e) => {
       console.log(err);
     });
 });
+

@@ -1,22 +1,7 @@
-function range(int) {
-  const arr = [];
-  for (let i = 0; i < int; i += 1) {
-    arr.push([i]);
-  }
-  return arr;
-}
+
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  
-  arr = range(restaurantList.length)
-  
-  const randomRestaurantsArray = arr.map((item) => {
-    const which = getRandomIntInclusive(0, restaurantList.length);
-    const restaurant = restaurantList[which]; // we are not worrying about uniqueness here
-    return restaurant;
-  });
-
-  const newDataShape = randomRestaurantsArray.reduce((collection, item, i) => {
+   return restaurantList.reduce((collection, item, i) => {
     // for each item, check if we have a category for that item already
     const findCat = collection.find((findItem) => findItem.label === item.category);
     
@@ -26,18 +11,16 @@ function convertRestaurantsToCategories(restaurantList) {
         y: 1
       });
     } else {
-      const position = collection.findIndex(el => el.label === item.category);
-      collection[position].y += 1;
+      findCat.y += 1;
     }
     return collection;
-  }, []);
-  
-  return newDataShape;
+  }, []); 
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
   CanvasJS.addColorSet('customColorSet1', [
+    'magenta', 'blue', 'yellow', 'green'
     // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
   ]);
 

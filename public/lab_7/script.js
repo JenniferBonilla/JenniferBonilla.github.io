@@ -20,7 +20,7 @@ function convertRestaurantsToCategories(restaurantList) {
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
   CanvasJS.addColorSet('customColorSet1', [
-    'magenta', 'blue', 'yellow', 'green'
+    '#B08BEB', 'EC5657', '3EA0DD', '2F4F4F'
     // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
   ]);
 
@@ -28,7 +28,7 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
     animationEnabled: true,
     colorSet: 'customColorSet1',
     title: {
-      text: 'Change This Title'
+      text: 'Places To Eat Out In Future'
     },
     axisX: {
       interval: 1,

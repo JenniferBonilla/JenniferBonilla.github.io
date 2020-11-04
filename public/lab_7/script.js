@@ -1,7 +1,7 @@
 
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-   return restaurantList.reduce((collection, item, i) => {
+   const newDataShape = restaurantList.reduce((collection, item, i) => {
     // for each item, check if we have a category for that item already
     const findCat = collection.find((findItem) => findItem.label === item.category);
     
@@ -11,10 +11,12 @@ function convertRestaurantsToCategories(restaurantList) {
         y: 1
       });
     } else {
-      findCat.y += 1;
+      const position = collection.findIndex(el => el.label === item.category);
+      collection[position].y += 1;
     }
     return collection;
   }, []); 
+  return newDataShape;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
